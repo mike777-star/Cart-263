@@ -98,6 +98,15 @@ function secretMouseover(){
 //Adding a found class to any secrets which are moused over
  $(this).addClass('found');
 
+//Step 6:
+//Removing the mouseover event
+$(this).off('mouseover');
+
+//Step 7:
+//Creating a function to increase the variable counter so the total secrets...
+//...variable changes
+ secretsFound = secretsFound + 1;
+
 }
 
 
