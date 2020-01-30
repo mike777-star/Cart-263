@@ -94,6 +94,10 @@ function updateSpan() {
 //Step 3-4:
 //Creating my event handler function
 function secretMouseover(){
+//Step 5:
+//Adding a found class to any secrets which are moused over
+ $(this).addClass('found');
+
 }
 
 
