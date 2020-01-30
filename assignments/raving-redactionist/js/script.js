@@ -17,11 +17,16 @@ const REVEAL_POSSIBILITY = 0.1;
 const UPDATE_FREQUENCY = 500;
 
 // A place to store the jQuery selection of all spans
+
+//Step 1: Adding my variables
 let secretsFound = 0;
 let secretsTotal = 0;
 
+let classifiedsTotal;
+let classifiedsFound;
+
 let $spans;
-let $secrets:
+let $secrets;
 
 // When the document is loaded we call the setup function
 $(document).ready(setup);
@@ -32,11 +37,24 @@ $(document).ready(setup);
 function setup() {
   // Save the selection of all spans (since we do stuff to them multiple times)
   $spans = $('span');
+  //Step 2:
+  //Selecting the secrets
+  $secrets = $('.secret');
+  console.log($secrets.length);
+  //Using the length property to calculate the result
+  secretsTotal = $secrets.length;
+  //Storing the result in the classifiedsTotal class
+  classifiedsTotal = $('#classifiedsTotal');
+  //Setting the span's value using the text function
+  classifiedsTotal.text(secretsTotal);
+
   // Set a click handler on the spans (so we know when they're clicked)
   $spans.on('click', spanClicked);
   // Set an interval of 500 milliseconds to update the state of the page
   setInterval(update, UPDATE_FREQUENCY);
-};
+
+
+}
 
 // spanClicked()
 //
@@ -67,12 +85,11 @@ function updateSpan() {
     $(this).removeClass('redacted');
     $(this).addClass('revealed');
   }
-
-function secretMouseover(){
-
 }
 
-}
+
+
+
 
 // A version using anonymous functions if you're interested:
 
