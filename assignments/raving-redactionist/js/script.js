@@ -48,6 +48,10 @@ function setup() {
   //Setting the span's value using the text function
   classifiedsTotal.text(secretsTotal);
 
+  //Step 3:
+  //Adding a mouseover event to all the secrets
+  $secrets.on('mouseover', secretMouseover);
+
   // Set a click handler on the spans (so we know when they're clicked)
   $spans.on('click', spanClicked);
   // Set an interval of 500 milliseconds to update the state of the page
@@ -87,8 +91,10 @@ function updateSpan() {
   }
 }
 
-
-
+//Step 3-4:
+//Creating my event handler function
+function secretMouseover(){
+}
 
 
 // A version using anonymous functions if you're interested:
