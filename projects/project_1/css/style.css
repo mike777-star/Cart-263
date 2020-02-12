@@ -1,3 +1,46 @@
 body {
 
 }
+
+.wrapper-play{
+  background-image: url("../assets/night_sky.png");
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-repeat: no-repeat;
+  background-size: 700px 700px;
+
+
+}
+
+.wrapper{
+  height:700px;
+  width: 700px;
+
+}
+
+.rocket{
+    width: 100px;
+    position: absolute;
+    left: 100px;
+    top:360px;
+
+}
+.rocketimg {
+width:100%;
+
+}
+
+.launchimg {
+  position: absolute;
+
+  width: 200px;
+  top: 575px;
+  left: 50px;
+}
+
+.giveupimg {
+  position: absolute;
+
+  width: 200px;
+  top: 575px;
+  left: 475px;
+}
