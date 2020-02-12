@@ -7,6 +7,11 @@ let $rocketFire;
 let $blastoff;
 //The giveup button
 let $giveup;
+//So we can later makes this false to restrict only one rocket creation...
+//...at a time.
+let createRocket =true;
+//Variable for my sound
+let fireSound;
 
 
 
@@ -26,6 +31,10 @@ function play(){
 //Declaring my button variables contain the proper id elements
   $blastoff = $('#blastoff');
   $giveup = $('#giveup');
+//Loading and defining my rockets launch sound for the takeoff function.
+  fireSound= document.createElement("AUDIO");
+fireSound.setAttribute("src","../assets/missile_launch.mp3");
+document.body.appendChild(fireSound);
 
 //Setting up my jquery .on functions so when clicked they trigger the proper...
 //...functions
@@ -51,5 +60,25 @@ function loadimage(){
 
 //My takeoff function so my rockets will know what to do.
 function takeoff() {
+
+//Assigning the correct value to the rocket variable so it selects the first...
+//...non airborn rocket.
+  let $rocket = $('.rocket').not('.airborn').first();
+
+//A conditional ensuring there is a rocket present.
+  if ($rocket.length !== 0) {
+//This ensures you can only create one rocket at a time.
+    if(createRocket ===true){
+
+      let newRocket = $("<div class = 'rocketBegin'>");
+//Assigning the new rocket the rocket image and it's new class.
+  $(newRocket).html("<img src='assets/rocket.png' class='rocketimg'>");
+//Inserting it through jquery before the blastoff
+  $(newRocket).insertBefore("#blastoff");
+//Ensuring no more new rockets can be made until declared.
+  createRocket=false;
+
+    }
+  }
 
 }

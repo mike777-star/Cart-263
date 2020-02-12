@@ -17,6 +17,19 @@ body {
 
 }
 
+.takeoff{
+  top: 400px;
+  /*background:blue;*/
+
+}
+
+.rocketBegin{
+  width: 100px;
+  position: absolute;
+  left: 700px;
+  top:360px;
+}
+
 .rocket{
     width: 100px;
     position: absolute;
