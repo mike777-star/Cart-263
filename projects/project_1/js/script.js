@@ -99,6 +99,28 @@ function takeoff() {
       });
 
     }
+
+//Once the player hits launch the original rocket's image will be replaced...
+//...by a rocket with a fire beneath it.
+
+    $(".rocket").html("<img src='assets/rocket_fire.png' class='rocketimg'>");
+//The launch will also trigger the blast sound effect.
+    fireSound.play();
+//Using the jquery animate function the rocket will travel off the top of...
+//...the screen
+    $rocket.animate({
+    top: "-=600"
+    },
+//It will travel this distance in 5 seconds
+    5000, function() {
+//Animation complete.
+
+    $rocket.addClass('airborn');
+//The rocket will recieve the aiborn class so it no longer interferes with...
+//...the next rockets or trigger again.
+
+    });
+
   }
 
 }
