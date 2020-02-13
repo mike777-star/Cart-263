@@ -3,7 +3,7 @@ body {
 }
 
 .wrapper-play{
-  background-image: url("../assets/night_sky.png");
+  background-image: url("../assets/poison_sky.png");
   background-repeat: no-repeat; /* Do not repeat the image */
   background-repeat: no-repeat;
   background-size: 700px 700px;
@@ -14,6 +14,14 @@ body {
 .wrapper{
   height:700px;
   width: 700px;
+
+}
+
+.wrapper-end{
+  background-image: url("../assets/end_screen.png");
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-repeat: no-repeat;
+  background-size: 700px 700px;
 
 }
 

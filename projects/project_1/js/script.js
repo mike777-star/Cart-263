@@ -42,10 +42,18 @@ document.body.appendChild(fireSound);
   $giveup.on('click', endgame);
 }
 
-//Creating my function which will end the game and show a message if the player..
-//...clicks give up.
+//Creating my function which will end the game and show a message if the
+//...player clicks give up.
 function endgame(){
-
+//This will replace the play wrapper's class with the endgame wrapper's class...
+//...which will display the end message.
+  $(".wrapper").addClass("wrapper-end");
+  $(".wrapper").removeClass("wrapper-play");
+//The onscreen elements will also be removed so it's just the end screen.
+  $(".rocket").remove();
+  $blastoff.remove();
+  $giveup.remove();
+  $(".rocketBegin").remove();
 }
 
 });
@@ -83,9 +91,9 @@ function takeoff() {
       left: "-=600"
     },
 
-//The 5000 value defines the 5 seconds it will take to travel from the right...
+//The 4000 value defines the 4 seconds it will take to travel from the right...
 //...to the correct position
-    5000, function() {
+    4000, function() {
 //Animation complete.
     $(newRocket).addClass('rocket');
 //Now the newRocket recieves the original rocket class.
@@ -108,11 +116,12 @@ function takeoff() {
     fireSound.play();
 //Using the jquery animate function the rocket will travel off the top of...
 //...the screen
+//For some reason I cannot figure out the fireSound may not trigger sometimes.
     $rocket.animate({
-    top: "-=600"
+    top: "-=650"
     },
-//It will travel this distance in 5 seconds
-    5000, function() {
+//It will travel this distance in 2 seconds
+    2000, function() {
 //Animation complete.
 
     $rocket.addClass('airborn');
