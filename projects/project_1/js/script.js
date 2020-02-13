@@ -77,6 +77,26 @@ function takeoff() {
   $(newRocket).insertBefore("#blastoff");
 //Ensuring no more new rockets can be made until declared.
   createRocket=false;
+//This jquery function will animate the new rocket from right side of the...
+//...the screen to left replacing the rocket that just took off.
+  $(newRocket).animate({
+      left: "-=600"
+    },
+
+//The 5000 value defines the 5 seconds it will take to travel from the right...
+//...to the correct position
+    5000, function() {
+//Animation complete.
+    $(newRocket).addClass('rocket');
+//Now the newRocket recieves the original rocket class.
+    $(newRocket).removeClass('rocketBegin');
+//In addition the class which let the rocket travel to the blastoff position...
+//...is removed.
+      createRocket=true;
+//createRocket becomes true again so the takeoff function may be triggered...
+//...again, but only after the newRocket's rocketBegin's class is removed.
+//This prevents more then 2 rockets to be screen at a time.
+      });
 
     }
   }
