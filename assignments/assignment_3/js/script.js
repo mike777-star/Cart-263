@@ -3,7 +3,7 @@
 /*****************
 
 Slamina
-rraB nippiP
+solraS leahciM
 
 A simple guessing game based on voice synthesis. The computer reads out an
 animal name, but it reads it backwards. The user selects the animal they
@@ -172,7 +172,28 @@ $(document).ready(setup);
 //
 // We just start a new round right away!
 function setup() {
+
+  //Step 1: Set up annyang
+  if (annyang) {
+    console.log("started")
+  // Let's define our first command. First the text we expect, and then the function it should call
+  //Step 1: Create my 'give up' voice command
+  var commands = {
+    'I give up': giveUpFunction
+  };
+  annyang.addCommands(commands);
+  // Start listening. You can call this here, or attach this call to an event, button, etc.
+  annyang.start();
   newRound();
+}
+
+
+}
+
+//Step 1: Creating my giveUpFunction so I can animate the correct answer.
+function giveUpFunction() {
+    console.log($correctButton);
+    $($correctButton).css('background','red');
 }
 
 // newRound()
@@ -213,6 +234,7 @@ function sayBackwards(text) {
   // (We do this all in one line using "chaining" because .split() returns an array for
   // for .reverse() to work on, and .reverse() returns an array for .join() to work on.)
   let backwardsText = text.split('').reverse().join('');
+  console.log("backwards");
 
   // Set some random numbers for the voice's pitch and rate parameters for a bit of fun
   let options = {
