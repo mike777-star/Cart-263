@@ -179,7 +179,11 @@ function setup() {
   // Let's define our first command. First the text we expect, and then the function it should call
   //Step 1: Create my 'give up' voice command
   var commands = {
-    'I give up': giveUpFunction
+    'I give up': giveUpFunction,
+  //Step 2: Creating my voice command for the sayItAgainFunction
+    'Say it again': sayItAgainFunction,
+  //Step 3: Creating my voice command with the correct animal name substituted
+    'I think it is *animal': replaceX
   };
   annyang.addCommands(commands);
   // Start listening. You can call this here, or attach this call to an event, button, etc.
@@ -194,6 +198,21 @@ function setup() {
 function giveUpFunction() {
     console.log($correctButton);
     $($correctButton).css('background','red');
+//It will also trigger a new round.
+    setTimeout(newRound, 1000);
+}
+
+//Step 2: Creating the function which will repeat the correct answer backwards.
+function sayItAgainFunction() {
+  console.log(" say again");
+  sayBackwards($correctButton.text());
+
+}
+//Step 3: The substituted animal voice command will trigger this initial function.
+function replaceX(animal){
+  console.log("the animal guessed is "+animal);
+// It will then trigger the guess function with the substituted animal.
+  handleGuessReplace(animal);
 }
 
 // newRound()
@@ -286,6 +305,19 @@ function handleGuess() {
     // Otherwise they were wrong, so shake the clicked button
     $(this).effect('shake');
     // And say the correct animal again to "help" them
+    sayBackwards($correctButton.text());
+  }
+}
+
+//Step 3: This function will check if the animal name from the voice command...
+//...matches the correct button.
+function handleGuessReplace(animal) {
+      console.log("in replace");
+  if (animal.toLowerCase()=== $correctButton.text()) {
+    $('.guess').remove();
+    setTimeout(newRound, 1000);
+  }
+  else {
     sayBackwards($correctButton.text());
   }
 }
