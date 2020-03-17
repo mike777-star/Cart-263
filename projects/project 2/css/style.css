@@ -1,0 +1,27 @@
+body {
+
+}
+
+.wrapper{
+  height: 500px;
+  width: 650px;
+
+}
+
+
+
+#start {
+  background-image: url("../assets/start_screen.png");
+}
+
+.message {
+  background-image: url("../assets/start_message.png");
+}
+
+.cat {
+
+}
+
+.button {
+
+}
