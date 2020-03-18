@@ -42,3 +42,11 @@ body {
   max-width: 500px;
   max-height: 650px;
 }
+
+#stars_behind{
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 500px;
+  max-height: 650px;
+}

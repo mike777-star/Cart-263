@@ -80,7 +80,7 @@ function setup() {
     $("#normalCat").attr("src", "assets/happy_cat.png");
 
 //Once the frame is loaded then the responsive voice with trigger.
-    responsiveVoice.speak("I am happy too", 'UK English Male', options);
+    responsiveVoice.speak("I am happy too", 'UK English Female', options);
   }
 
   function iamSad() {
@@ -91,7 +91,7 @@ function setup() {
 
 
 
-    responsiveVoice.speak("I am sadder then you", 'UK English Male', options);
+    responsiveVoice.speak("I am sadder then you", 'UK English Female', options);
 
   }
 
@@ -101,7 +101,7 @@ function setup() {
     $("#normalCat").attr("src", "assets/angry_cat.png");
 
 
-    responsiveVoice.speak("I am more angry then you", 'UK English Male', options);
+    responsiveVoice.speak("I am more angry then you", 'UK English Female', options);
 
   }
 
