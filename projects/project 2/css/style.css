@@ -8,20 +8,37 @@ body {
 
 }
 
-
-
-#start {
-  background-image: url("../assets/start_screen.png");
+#start-image {
+  max-width: 500px;
+  max-height: 650px;
 }
 
-.message {
-  background-image: url("../assets/start_message.png");
+#instructions {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 500px;
+  max-height: 650px;
 }
 
 .cat {
+    display: none;
+}
 
+#normalCat {
+  max-width: 500px;
+  max-height: 650px;
 }
 
 .button {
+  display: none;
+}
 
+#moremoney{
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 500px;
+  max-height: 650px;
 }

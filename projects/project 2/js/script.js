@@ -13,6 +13,9 @@ $(document).ready(setup);
 
 
 function setup() {
+//Step 6: Before the game starts there will be a start screen which will be...
+//...removed on click.
+  $("#start").on('click', showInstructions);
 
 //Step 3: I am defining the pitch and rate of my responsive voice as random...
 //...in the mean time.
@@ -42,6 +45,24 @@ function setup() {
     annyang.start();
     annyang.debug();
 
+  }
+
+//Step 6: By clicking and removing the start screen the cat will load with...
+//...a set of instructions over it.
+  function showInstructions() {
+    $("#start").remove();
+//This jquery function will remove the display none on both the cat and...
+//...button classes.
+    $(".cat").show();
+    $(".button").show();
+//After you click the instructions the play function will trigger which will...
+//...remove the message as the more money button will appear.
+    $("#instructions").on('click', play);
+  }
+
+  function play() {
+    $("#instructions").remove();
+    $("#moremoney").show();
   }
 
 
@@ -84,5 +105,22 @@ function setup() {
 
   }
 
+  //Step 5: I am creating my reset function to actually trigger the closed...
+  //...mouth frames using the catState values.
+  function resetCat() {
+
+    if (catState === 1) {
+      $("#normalCat").attr("src", "assets/glad_cat.png");
+
+    }
+    else if (catState === 2) {
+      $("#normalCat").attr("src", "assets/unhappy_cat.png");
+
+    }
+    else if (catState === 3) {
+      $("#normalCat").attr("src", "assets/pissed_cat.png");
+
+    }
+  }
 
 };
