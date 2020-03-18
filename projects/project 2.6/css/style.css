@@ -1,0 +1,44 @@
+body {
+
+}
+
+.wrapper{
+  height: 500px;
+  width: 650px;
+}
+
+
+#start-image {
+  max-width: 500px;
+  max-height: 650px;
+}
+
+#instructions {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 500px;
+  max-height: 650px;
+}
+
+.cat {
+  display: none;
+}
+
+#normalCat {
+  max-width: 500px;
+  max-height: 650px;
+}
+
+.button {
+  display: none;
+}
+
+#moremoney{
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 500px;
+  max-height: 650px;
+}

@@ -1,113 +1,60 @@
 
-
+//Step 1: I set up my variable for my initial cat
 let $moneyCat;
+// I set up my variables for my cats different animation responses.
 let $happyCat;
 let $sadCat;
 let $angryCat;
 
+//My variable for my button to pay more money to the cat.
 let $paymore
 
 $(document).ready(setup);
 
 
-
-
-
-function play(){
-
-  $("#start").remove();
-
-  $(".wrapper").addClass("message");
-  loadimage()
-  }
-
-
-//
-// $paymore = $('.button');
-//
-// $paymore.on('click', iamHappy);
-
-
 function setup() {
 
-  $("#start").on('click',play);
 
-  let options = {
-    pitch: Math.random(),
-    rate: Math.random(),
-    onend: resetCat
-  };
 
-let catState =0;
+  let catState = 0;
   if (annyang) {
     console.log("started")
 
-  var commands = {
+//Step 2: Setting up my annyang commands and functions for all three responses.
+    var commands = {
 
-    'I am happy': iamHappy,
+      'I am happy': iamHappy,
 
-    'I am sad': iamSad,
+      'I am sad': iamSad,
 
-    'I am angry': iamAngry,
+      'I am angry': iamAngry,
 
-  };
+    };
 
-  annyang.addCommands(commands);
+    annyang.addCommands(commands);
 
-  annyang.start();
-  annyang.debug();
-
-}
-
-function startFunction(){
-
-}
-
-function iamHappy() {
-  console.log("happy");
-
-  catState =1;
-
- $("#normalCat").attr("src","assets/happy_cat.png");
-
-
- responsiveVoice.speak("I am happy too", 'UK English Male', options);
-}
-
-function iamSad() {
-  catState =2;
-
-  $("#normalCat").attr("src","assets/sad_cat.png");
-
-
-
-  responsiveVoice.speak("I am sadder then you", 'UK English Male', options);
-
-}
-
-function iamAngry() {
- catState =3;
-  $("#normalCat").attr("src","assets/angry_cat.png");
-
-
-  responsiveVoice.speak("I am more angry then you", 'UK English Male', options);
-
-}
-
-function resetCat() {
-
-  console.log("reset cat");
-  if(catState ===1){
-    $("#normalCat").attr("src","assets/glad_cat.png");
+    annyang.start();
+    annyang.debug();
 
   }
-  else if(catState ===2){
-    $("#normalCat").attr("src","assets/unhappy_cat.png");
+
+
+
+//Step 2: Defining my functions to trigger the animation images and unique...
+//...response.
+  function iamHappy() {
 
   }
-  else if(catState ===3){
-    $("#normalCat").attr("src","assets/pissed_cat.png");
+
+  function iamSad() {
+
 
   }
-}
-}
+
+  function iamAngry() {
+
+
+  }
+
+
+};
