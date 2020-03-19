@@ -44,6 +44,7 @@ body {
 }
 
 #stars_behind{
+  display: none;
   position: absolute;
   top: 0;
   left: 0;

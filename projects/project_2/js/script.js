@@ -20,8 +20,8 @@ function setup() {
 //Step 3: I am defining the pitch and rate of my responsive voice as random...
 //...in the mean time.
   let options = {
-    pitch: Math.random(),
-    rate: Math.random(),
+    pitch: 1.8,
+    rate: 0.8,
     onend: resetCat
   };
 
@@ -63,6 +63,9 @@ function setup() {
   function play() {
     $("#instructions").remove();
     $("#moremoney").show();
+    $("#moremoney").on('click', iamHappy);
+    $("#stars_behind").show();
+
   }
 
 
