@@ -44,10 +44,19 @@ function gotData(data) {
   // Same again for room
   let room = getRandomElement(data.rooms);
 
+  //Step 1: I am getting a random beer from the beer array within the JSON file.
+  let beer = getRandomElement(data.beers);
+  //Step 1: I am doing the same for color array so the beer can have a color.
+  let color = getRandomElement(data.colors);
+
   // Now we can construct our description with a template string
   // We have the basic structure of a sentence and we substitute in the
   // values we've just calculated
-  let description = `${condiment} ${verb} like a ${cat} in a ${room}.`;
+
+  //
+  //Step 2: I am reorganizing the sentence to include my two new descriptive...
+  //...elements.
+  let description = `${condiment} ${verb} like a ${cat} dipped in ${color.color} ${beer} in a ${room}.`;
 
   // Finally, we add it to the page and hey presto!
   $('body').append(description)
