@@ -24,7 +24,7 @@ $(document).on('click', function(){
 
 function gotData(data) {
 
-  $('body').append(description)
+    $('body').empty();
 
 
   //Step 3: I am defining the indefinite articles so "a" can be changed...
@@ -82,7 +82,7 @@ function gotData(data) {
   let description = `${condiment} ${verb} like a ${cat} dipped in ${color.color} ${beer} in a ${room}.`;
 
 
-  $('body').append(description)
+  $('body').append(description);
 }
 
 
