@@ -1,0 +1,19 @@
+body {
+
+}
+
+.wrapper{
+  height: 500px;
+  width: 650px;
+
+}
+
+#start-image {
+  max-width: 500px;
+  max-height: 650px;
+}
+
+
+.button {
+  display: none;
+}
