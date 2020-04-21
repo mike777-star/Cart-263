@@ -29,6 +29,25 @@ function setup() {
 
     });
 
+//Step 9: When you click the A.I. logo it will trigger a responsive voice.
+    $("#robot").click(function(){
+//The voice options
+    let textOptions = ["Please answer the questions.", "Why waste your time clicking on me.",
+    "Your time on earth is finite.","1zero1one1zero1zero1onezerozero","Refrain from on.click function."];
+//The function which randomized which voice option is played.
+    let randomIndex = Math.floor(Math.random()*textOptions.length);
+//A little alternate animation state which changes only when the A.I. is...
+//...speaking.
+      $("#robotImage").attr("src","assets/mad_logo.png");
+    responsiveVoice.speak(textOptions[randomIndex], "UK English Male", {onend: EndCallback});
+  })
+//The function which returns the A.I. to its normal state once the voice line...
+//...is complete.
+  function EndCallback(){
+    console.log("end");
+    $("#robotImage").attr("src","assets/happy_logo.png");
+  }
+
 //Step 3: I am setting up my first question so the user can only input number...
 //...values into the form.
     $("#submit-1").click(function(){
@@ -116,6 +135,24 @@ $("#submit-3").click(function(){
 
          }
        }
+
+//Step 10: In order to ensure a more randomized final answer and I am including...
+//...datasets from corpora which will combine with question 3 and 5 output values.
+//Question 3 output will combine an electronic appliance.
+let appArray = data.appliances;
+//The function which randomnly selects from the electronic appliance array.
+let randomIndexOne = Math.floor(Math.random()* appArray.length);
+let appSelection = appArray[randomIndexOne];
+//The function which combines the array result with the third answer and...
+//...additional context so it fits in the sentence.
+let newanswerTwo = answers[1]+" real friends, I'd say you have the sociabibility of a "+appSelection;
+
+//For the question 5 array integration, I used the same structure as question 3.
+//Except I am using a technologies dataset.
+let techArray = data.technologies;
+let randomIndexTwo = Math.floor(Math.random()* techArray.length);
+let techSelection = techArray[randomIndexTwo];
+let newanswerFour = answers[3]+techSelection;
 
 
 
