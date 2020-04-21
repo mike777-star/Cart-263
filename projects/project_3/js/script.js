@@ -34,11 +34,11 @@ function setup() {
     $("#submit-1").click(function(){
   let inputValue  = $("#facebookFriend").val();
   if (inputValue==="") {
-
   }
 
   else{
-//I am taking the answer and pushing it to my answers array
+//I am taking the answer and pushing it to my answers array which later...
+//...construct a unique response from all the question inputs.
     answers.push(inputValue);
 //I am changing the question value to the next one so the question inputs...
 //...don't get confused.
@@ -46,10 +46,47 @@ function setup() {
 //I am hiding the current question(1) and showing question two.
     $("#questionOne").hide();
     $("#questionTwo").show();
-
   }
-
 });
+
+//Step 4: I repeated the same sequence for question 1 for question 2 as it...
+//... also used a number form.
+$("#submit-2").click(function(){
+let inputValue  = $("#realFriend").val();
+if (inputValue==="") {
+}
+
+else{
+  answers.push(inputValue);
+    nextQuestion=3;
+  $("#questionTwo").hide();
+  $("#questionThree").show();
+  responsiveVoice.speak("Can a robot be your friend?",
+  "UK English Male", {onend: EndCallback});
+  }
+});
+
+//Step 6: I am setting up the array for my radio check box forms. Depending...
+//...which answer they choose a respective value will be sent to the answers...
+//...array.
+$("#submit-3").click(function(){
+			let ele = document.getElementsByName('three');
+
+//The function which takes the form input and then pushes it to the answers...
+//array.
+			for(i = 0; i < ele.length; i++) {
+				if(ele[i].checked) {
+        console.log(ele[i].value);
+        answers.push(ele[i].value);
+//The events so the question will once again change after the input is...
+//...submitted.
+        nextQuestion=4;
+        $("#questionThree").hide();
+        $("#questionFour").show();
+        break;
+      }
+		 }
+   }); //end third question
 
 
   let options = {
@@ -59,10 +96,36 @@ function setup() {
   };
 
 
+  if (annyang) {
+      console.log("started")
 
-    annyang.addCommands(commands);
+  //Step 5: Setting up my annyang commands and functions for questions 1 and 2.
+      var commands = {
+        'I have :numFriends facebook friends': questionOneCommand,
 
-    annyang.start();
-    annyang.debug();
+        'I have :numFriends real friends': questionTwoCommand,
+      };
+
+      annyang.addCommands(commands);
+
+      annyang.start();
+    //  annyang.debug();
+
+    }
+  //These functions will ensure that if the value is spoken it will still be...
+  //...pushed and the question events will still occur.
+    function questionOneCommand(numFriends){
+      answers.push(numFriends);
+      nextQuestion=2;
+      $("#questionOne").hide();
+      $("#questionTwo").show();
+    }
+
+    function questionTwoCommand(numFriends){
+      answers.push(numFriends);
+      nextQuestion=2;
+      $("#questionTwo").hide();
+      $("#questionThree").show();
+    }
 
   };
