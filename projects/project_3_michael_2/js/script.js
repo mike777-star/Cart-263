@@ -147,7 +147,7 @@ $("#submit-5").click(function(){
   let appArray = data.appliances;
   let randomIndexOne = Math.floor(Math.random()* appArray.length);
   let appSelection = appArray[randomIndexOne];
-  let newanswerTwo = answers[1]+" real friends, I'd say you have the sociabibility of a "+appSelection;
+  let newanswerTwo = answers[1]+" real friends, I'd say you have the sociability of a "+appSelection;
 
   let techArray = data.technologies;
   let randomIndexTwo = Math.floor(Math.random()* techArray.length);
