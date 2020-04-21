@@ -13,8 +13,19 @@ function setup() {
   $("#questionThree").hide();
   $("#questionFour").hide();
   $("#questionFive").hide
+  let nextQuestion =1;
 
 };
+
+//Retrieving my json data for my arrays.
+$.getJSON('data/data.json')
+   .done(gotData)
+   .fail(dataError);
+
+function dataError(){
+  console.log("could not get data");
+      }
+   };
 
   function gotData(data){
   let answers = [];
@@ -26,6 +37,9 @@ function setup() {
     $("#robot").show();
     $("#questionOne").show();
     $("#start").hide();
+//Step 12: I'm adding voice responses for each question.
+    responsiveVoice.speak("How many facebook friends do you have?",
+    "UK English Male", {onend: EndCallback});
 
     });
 
@@ -65,6 +79,9 @@ function setup() {
 //I am hiding the current question(1) and showing question two.
     $("#questionOne").hide();
     $("#questionTwo").show();
+
+    responsiveVoice.speak("How many real friends do you have?",
+    "UK English Male", {onend: EndCallback});
   }
 });
 
@@ -80,6 +97,7 @@ else{
     nextQuestion=3;
   $("#questionTwo").hide();
   $("#questionThree").show();
+
   responsiveVoice.speak("Can a robot be your friend?",
   "UK English Male", {onend: EndCallback});
   }
@@ -102,10 +120,13 @@ $("#submit-3").click(function(){
         nextQuestion=4;
         $("#questionThree").hide();
         $("#questionFour").show();
+
+        responsiveVoice.speak("Would you believe me if I told you robots are already your friends?",
+        "UK English Male", {onend: EndCallback});
         break;
       }
 		 }
-   }); //end third question
+   });
 
 //Step 7: I am adding question 4 the same way as questio 3 as they both user...
 //...the radio buttons as input fields.
@@ -118,11 +139,15 @@ $("#submit-3").click(function(){
        nextQuestion=4;
      $("#questionFour").hide();
      $("#questionFive").show();
+
+     responsiveVoice.speak("What if I told you we are more then friends? What if I told you we are one?",
+     "UK English Male", {onend: EndCallback});
      nextQuestion=5;
 
         }
        }
      });
+
 //Step 8: Same as Step 7
      $("#submit-5").click(function(){
        let ele = document.getElementsByName('five');
@@ -154,7 +179,13 @@ let randomIndexTwo = Math.floor(Math.random()* techArray.length);
 let techSelection = techArray[randomIndexTwo];
 let newanswerFour = answers[3]+techSelection;
 
+//Step 11: This functions takes all the answers from the array or their...
+//...modified versions and constructs it into a sentence.
+let textanswer = ` Judging by your ${answers[0]} facebook friends and your ${newanswerTwo}. ${answers[2]}. ${newanswerFour}. ${answers[4]}.`;
+$("#answer").text(textanswer);
 
+//Step 12: Adding a voice response for the final answer.
+responsiveVoice.speak(textanswer, "UK English Male", {onend: EndCallback});
 
      });
 
@@ -189,6 +220,9 @@ let newanswerFour = answers[3]+techSelection;
       nextQuestion=2;
       $("#questionOne").hide();
       $("#questionTwo").show();
+
+      responsiveVoice.speak("How many real friends do you have?",
+      "UK English Male", {onend: EndCallback});
     }
 
     function questionTwoCommand(numFriends){
@@ -196,6 +230,9 @@ let newanswerFour = answers[3]+techSelection;
       nextQuestion=2;
       $("#questionTwo").hide();
       $("#questionThree").show();
+
+      responsiveVoice.speak("Can a robot be your friend?",
+      "UK English Male", {onend: EndCallback});
     }
 
   };
