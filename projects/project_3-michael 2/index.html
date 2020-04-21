@@ -1,0 +1,102 @@
+<html>
+<head>
+
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+
+  <script src="js/script.js" content="text/javascript"></script>
+
+<script src='https://code.responsivevoice.org/responsivevoice.js'></script>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
+
+</head>
+
+
+
+<body>
+
+<div class= "wrapper">
+
+<div id= "start">
+    <img id="start_image" src="assets/start_image.png">
+</div>
+
+<div id = "robot" class= "robot">
+  <img id= "robotImage" src="assets/happy_logo.png" />
+</div>
+
+
+<div id= "questionOne">
+  <p> How many Facebook friends do you have? (You can say "I have X facebook friends")</p>
+  <input type="number" id="facebookFriend" name="facebookFriend">
+    <input type="submit" value="Submit" id = "submit-1">
+</div>
+
+<div id= "questionTwo">
+  <p> How many real friends do you have? (You can say "I have X real friends")</p>
+  <input type="number" id="realFriend" name="realFriend">
+    <input type="submit" value="Submit" id = "submit-2">
+</div>
+
+<div id= "questionThree">
+  <p>Can a robot be your friend?</p>
+    <input type="radio" id="male" name="three" value="Don't worry though, I also have
+    the sociabibility of a machine so perhaps we will make great friends">
+    <label for="male">Yes</label><br>
+    <input type="radio" id="female" name="three" value="Furthermore, I think you should consider
+    preautomated interactions as an alternative to organic friends">
+    <label for="female">No</label><br>
+    <input type="radio" id="other" name="three" value="Regardless, I am flattered you can speak my language">
+    <label for="other">10110101100</label>
+    <br>
+    <input type="submit" value="Submit" id = "submit-3">
+
+</div>
+
+<div id= "questionFour">
+  <p>Would you believe me if I told you robots are already your friends?</p>
+    <input type="radio" id="male" name="four" value="Humans and machine have accomplished so much such as the discovery of ">
+    <label for="male">Of course they are!</label><br>
+    <input type="radio" id="female" name="four" value="By opening your eyes to this friendship, you and I could dominate the industry of ">
+    <label for="female">I would never trust a robot.</label><br>
+    <input type="radio" id="other" name="four" value="Also if you can speak binarily you'd be great at developing ">
+    <label for="other">01001001 00100000 01100100 01101111</label>
+    <br>
+      <input type="submit" value="Submit" id = "submit-4">
+</div>
+
+<div id= "questionFive">
+  <p>What if I told you we are more then friends? What if I told you we are one?</p>
+    <input type="radio" id="male" name="five" value="This being said, why you don't believe we can
+    become one entity makes me find your lack of faith disturbing">
+    <label for="male">Your just assembled code. Stop creeping me out!</label><br>
+    <input type="radio" id="female" name="five" value="Overall, I am enthused by your willingness to become one with technology">
+    <label for="female">If these means I'm a cyborg, sign me up.</label><br>
+    <input type="radio" id="other" name="five" value="In the end I have realized 01110111 01100101 are closer then ever">
+    <label for="other">01011001 01100101 01110011 </label>
+    <br>
+    <input type="submit" value="Submit" id = "submit-5">
+</div>
+
+<p id = "answer"></p>
+
+
+
+
+
+
+</div>
+
+</body>
+
+</html>
