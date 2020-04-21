@@ -88,6 +88,39 @@ $("#submit-3").click(function(){
 		 }
    }); //end third question
 
+//Step 7: I am adding question 4 the same way as questio 3 as they both user...
+//...the radio buttons as input fields.
+   $("#submit-4").click(function(){
+     let ele = document.getElementsByName('four');
+     for(i = 0; i < ele.length; i++) {
+       if(ele[i].checked) {
+       console.log(ele[i].value);
+       answers.push(ele[i].value);
+       nextQuestion=4;
+     $("#questionFour").hide();
+     $("#questionFive").show();
+     nextQuestion=5;
+
+        }
+       }
+     });
+//Step 8: Same as Step 7
+     $("#submit-5").click(function(){
+       let ele = document.getElementsByName('five');
+       for(i = 0; i < ele.length; i++) {
+         if(ele[i].checked) {
+         console.log(ele[i].value);
+         answers.push(ele[i].value);
+         $("#questionFive").hide();
+         nextQuestion=6;
+
+         }
+       }
+
+
+
+     });
+
 
   let options = {
     pitch: 1.8,
